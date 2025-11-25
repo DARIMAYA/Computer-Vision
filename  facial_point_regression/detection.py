@@ -96,7 +96,7 @@ def train_detector(train_gt: Dict, train_img_dir: str, fast_train=True):
     print(f"Fast training: {fast_train}, Epochs: {epochs}")
 
     dataset = FastFacePointsDataset(train_gt, train_img_dir, target_size)
-    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=0)
+    dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=2)
 
     model = FastFacePointsModel(num_points=28)
     model.to(device)
